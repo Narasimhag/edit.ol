@@ -1,0 +1,256 @@
+/*
+Custom Varialbles
+*/
+$main-font: 'Lato', sans-serif;
+$code-font: 'Source Code Pro', ;
+$font-size: 16px;
+
+//colors
+$black: #000;
+$white: #FFF;
+$grey: #585c65;
+$mediumgrey: #9b9b9b;
+$lightgrey: #eeeeee;
+
+$accentcolor: #ff5177;
+$fontcolor: #009688;
+
+$padding: 10px;
+$margin: 10px;
+
+
+
+/*
+Override Bootstrap Variable
+*/
+$font-family-sans-serif: $main-font;
+
+@import 'bootstrap';
+
+*{
+	position: relative;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: $font-size;
+}
+
+header{
+	max-height: 500px;
+	height: 500px;
+	overflow: hidden;
+	img {
+	    position: fixed;
+	    top: 0px;
+	    left: 50%;
+	    margin-left: -600px;
+	    width: 1200px;
+	 
+	    @media screen and (min-width: $screen-lg) {
+	        top: auto;
+	        left: auto;
+	        margin: 0;
+	        width: 100%;
+	    }
+	}
+	.brand {
+		font-size: 30px;
+		position: absolute;
+		top: 10px;
+		left: 50px;
+		color: $white;
+
+	}
+	.titles {
+	        position: absolute;
+	        bottom: 40%;
+	        width: 100%;
+	        text-align: center;
+	 
+	        @media screen and (min-width: $screen-lg) {
+	            bottom: 50%;
+	        }
+	        .typer{
+	        	
+	        	text-shadow: 3px 3px 8px $accentcolor;
+	        	font-size: 70px;
+	        	color : $black;
+	        	width : 10em;
+	        	white-space: nowrap;
+	        	overflow: hidden;
+	        	animation: type 3s steps(30, end);
+	        	margin : auto;
+	        }
+
+	        @keyframes type{
+	        	from{ width: 0; }
+	        }
+
+	        
+			@keyframes blink{
+			  to{opacity: .0;}
+			}
+		#tag{
+			color: $white;
+			text-shadow: 2px 2px 4px $fontcolor;
+			font-size: 20px;
+		}	
+			
+	}
+	#blink{
+		animation: blink 1s infinite;
+	}
+}
+
+
+.code-font{
+	font-family: $code-font;
+}
+.user_buttons{
+	padding : 10px;
+	#reg{
+		margin-left : 5px;
+		background:none;
+	    border : 2px ridge $white;
+	    color: $white;
+	    box-shadow:none;
+
+	    :hover {
+	    	color : $fontcolor;
+	    }
+	}
+	#login{
+		margin-right: 5px;
+		background:none;
+	    border : 2px ridge $white;
+	    color: $white;
+	    font-color: $white;
+	    box-shadow:none;
+
+	    :hover {
+	    	color : $accentcolor;
+	    }
+	}
+}
+.teal-text{
+	color : $fontcolor;
+	font-weight: 700;
+}
+.content-wrap{
+	background: $lightgrey;
+}
+.main-content{
+	
+	h3 {
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        padding: $padding*4 0;
+        color: darken($lightgrey, 40%);
+    }
+    p{
+    		font-size: 20px;
+            background: $white;
+            box-shadow: 10px 10px 10px darken($lightgrey, 20%);
+            color: $black;
+            letter-spacing: 0.7px;
+            padding: $padding*1.5;
+            
+            
+            
+            
+    }
+    a{
+    	text-decoration: none;
+    	font-weight: 700;
+    	color: $accentcolor;
+    	&:hover{
+    		color: darken($accentcolor, 20%);
+    	}
+    }
+     hr{
+     	
+     	background: $fontcolor;
+     }   
+        
+}
+
+footer {
+    background: $white;
+    padding: $padding*3 0;
+    text-align: center;
+ 
+    @media screen and (min-width: $screen-lg) {
+        padding: $padding*10 0;
+    }
+ 
+    h4 {
+        font-size: 36px;
+        
+        text-align: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+ 
+    .about-text {
+        padding: 0 $padding*3;
+ 		
+
+        @media screen and (min-width: $screen-lg) {
+            width: 650px;
+            margin: 0 auto;
+        }
+    }
+ 
+    .contact-now-btn {
+        display: inline-block;
+        width: 70%;
+        padding: $padding*2 $padding*5;
+        margin-top: $margin*2;
+        color: $white;
+        background: $fontcolor;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+ 
+        @media screen and (min-width: $screen-md) {
+            width: 60%;
+        }
+ 
+        @media screen and (min-width: $screen-lg) {
+            width: 20%;
+            margin-top: $margin*5;
+        }
+ 
+        &:hover {
+            background: lighten($fontcolor, 5%);
+        }
+    }
+}
+.footer-bottom {
+
+    background: $black;
+    padding: $padding $padding*6;
+    border-top: 2px solid $lightgrey;
+    letter-spacing: 2px;
+    text-align: center;
+    color: $mediumgrey;
+    text-transform: uppercase;
+ 
+    @media screen and (min-width: $screen-md) {
+        padding: $padding*4 0;
+    }
+    a{
+    	text-decoration: none;
+    	font-weight: 700;
+    	color: $accentcolor;
+    	&:hover{
+    		color: darken($accentcolor, 20%);
+    	}
+    }
+}
