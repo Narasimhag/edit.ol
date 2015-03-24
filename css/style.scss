@@ -25,6 +25,7 @@ Override Bootstrap Variable
 */
 $font-family-sans-serif: $main-font;
 
+
 @import 'bootstrap';
 
 *{
@@ -136,6 +137,16 @@ header{
 .teal-text{
 	color : $fontcolor;
 	font-weight: 700;
+}
+.brand-button{
+	background: $fontcolor;
+	&:hover{
+		background: darken($fontcolor, 5%);
+	}
+}
+.left-content{
+	border-right: 1px dashed #333;
+	padding-right : 10px;
 }
 .content-wrap{
 	background: $lightgrey;

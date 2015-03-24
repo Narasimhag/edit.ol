@@ -6,6 +6,19 @@
 	<title>edit.ol</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato|Source+Code+Pro:300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
+	<script>
+		var fbLogin = function(){
+			var ref = new Firebase("https://editol.firebaseio.com");
+			ref.authWithOAuthPopup("facebook", function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			  } else {
+			    console.log("Authenticated successfully with payload:", authData);
+			  }
+			});
+		}
+	</script>
 </head>
 <body>
 	<header>
@@ -14,8 +27,8 @@
 			<strong>edit.ol</strong>
 		</div>
 		<div class="user_buttons">
-			<a class="btn btn-default pull-right" id="reg"><strong>REGISTER</strong></a>
-			<a class="btn btn-default pull-right" id="login"><strong>LOG IN</strong></a>
+			<a class="btn btn-default pull-right" id="reg" ><strong>REGISTER</strong></a>
+			<a class="btn btn-default pull-right" id="login" data-toggle="modal" data-target="#loginModal"><strong>LOG IN</strong></a>
 		</div>
 		<div class="titles">
 			<p class="typer code-font">
@@ -51,9 +64,9 @@
 		<div class="container">
 	    <div class="row">
 	        <div class="col-xs-12">
-	            <h4><span class="teal-text">edit.ol</span> is opensource!</h4>
+	            <h4><span class="teal-text code-font">edit.ol</span> is opensource!</h4>
 	            <p class="about-text">The project is hosted on github. Please file an issue if you find any bugs. Thanks for your co-operation.</p>
-	            <a class="contact-now-btn" href="#">Go to GitHub</a>
+	            <a class="contact-now-btn" href="https://github.com/Narasimhag/edit.ol">Go to GitHub</a>
 	        </div>
 	    </div>
 	</div>
@@ -61,7 +74,62 @@
 	<section class="footer-bottom">
 	    Designed and Developed by <a href="https://www.github.com/narasimhag">Narasimha Rao</a>.
 	</section>
+
+	<!-- Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Log into <span class="teal-text code-font">edit.ol</span></h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="row">
+	        	<div class="col-xs-6">
+	        		<div class="left-content">
+	        			<p>With your <span class="teal-text">e-mail</span></p>
+		        		<form class="form-horizontal">
+						  <div class="form-group">
+						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						    <div class="col-sm-10">
+						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+						    <div class="col-sm-10">
+						      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+						    </div>
+						  </div>
+						  
+						  <div class="form-group">
+						    <div class="col-sm-offset-2 col-sm-10">
+						      <button type="submit" class="btn btn-primary brand-button">Sign in</button>
+						    </div>
+						  </div>
+						</form>
+					</div>
+	        	</div>
+	        	<div class="col-xs-6">
+	        			<p>Or, use <span class="teal-text">Social</span> login...</p>
+	        			<button class="btn btn-default btn-block" style="background: #3A5795; color:#fff }" id="fb-login" onclick="fbLogin()">Facebook</button><br>
+	        			<button class="btn btn-default btn-block" style="background: #0084B4; color:#fff">Twitter</button><br>
+	        			<button class="btn btn-default btn-block" style="background: #000; color:#fff">GitHub</button><br>
+	        		
+	        	</div>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	      	No account? Get one here &gt;
+	      	<button type="button" class="btn btn-primary brand-button">Register</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
 </body>
 </html>
